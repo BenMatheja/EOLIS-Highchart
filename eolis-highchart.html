@@ -57,12 +57,15 @@ $(function () {
             scatter: {
                 width: 1,
                 height: 1,
-                depth: 0.5
+                depth: 0.5,
+                dashStyle: "Dash",
+                marker: {symbol: "circle"}
             }
         },
+        // If the min max values are left out, highcharts calculates min max out of data
         yAxis: {
             min: 0.58,
-            max: 53.7,
+            max: 15,
             title: {
                 text: 'current'
             }
@@ -75,8 +78,8 @@ $(function () {
             }
         },
         zAxis: {
-            min: 0.039,
-            max: 160.33,
+            // min: 0.039,
+            max: 10,
             title: {
                 text: 'capacity'
             }
