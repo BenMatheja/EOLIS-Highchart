@@ -76,7 +76,7 @@ $(function () {
             text: 'Relative deviations of Assignments (Battery to Scenario)'
         },
         subtitle: {
-            text: "by current, voltage and capacity for Nissan x Mobile Anwendung"
+            text: "by voltage, current and capacity"
         },
         plotOptions: {
             scatter: {
@@ -166,6 +166,7 @@ $(function () {
     $('#bmw_mobil').click(function() {
       RemoveObservationsFromChart();
       AddObservationsToChart(cluster_assigned_object["BMW_Mobile Anwendung"]);
+      chart.setTitle(null, { text: 'by voltage, current and capacity for BMW x Mobile Anwendung'});
       chart.redraw();
         
     });
@@ -173,19 +174,22 @@ $(function () {
     $('#bmw_stat').click(function() {
       RemoveObservationsFromChart();
       AddObservationsToChart(cluster_assigned_object["BMW_Stationäre Anwendung"]);
+      chart.setTitle(null, { text: 'by voltage, current and capacity for BMW x Stationäre Anwendung'});
       chart.redraw();
     });
 
-    $('nissan_mobil').click(function() {
+    $('#nissan_mobil').click(function() {
       RemoveObservationsFromChart();
       AddObservationsToChart(cluster_assigned_object["Nissan_Mobile Anwendung"]);
+      chart.setTitle(null, { text: 'by voltage, current and capacity for Nissan x Mobile Anwendung'});
       chart.redraw();
    
     });
 
-    $('nissan_stat').click(function() {
+    $('#nissan_stat').click(function() {
       RemoveObservationsFromChart();
       AddObservationsToChart(cluster_assigned_object["Nissan_Stationäre Anwendung"]);
+      chart.setTitle(null, { text: 'by voltage, current and capacity for Nissan x Stationäre Anwendung'});
       chart.redraw();
     });
 });
