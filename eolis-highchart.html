@@ -53,7 +53,6 @@ $(function () {
             ]
         };
     });
-
     // Set up the chart
     var chart = new Highcharts.Chart({
         chart: {
@@ -90,22 +89,16 @@ $(function () {
         },
         // If the min max values are left out, highcharts calculates min max out of data
         yAxis: {
-            //min: 0.58,
-            //max: 15,
             title: {
                 text: 'capacity'
             }
         },
         xAxis: {
-            //min: 0.58,
-            //max: 2.25,
             title: {
                 text: 'voltage'
             }
         },
         zAxis: {
-            // min: 0.039,
-            //max: 10,
             title: {
                 text: 'current'
             }
@@ -143,6 +136,33 @@ $(function () {
             }
         });
     });
+    //Define Functions to interact with plot
+    function AddObservationsToChart(clusterspace){
+      $.each(clusterspace, function(k,v) {
+        var name = '';
+        var data = [];
+        //console.log(k);
+        $.each(clusterspace[k], function(k,v){
+          data.push(v);
+          //console.log(v);
+        });
+        console.log(data.length);
+        chart.addSeries({
+          name: "Cluster "+k,
+          data: data
+        }, false)
+      });
+    chart.redraw();
+    }
+
+    function RemoveObservationsFromChart(){
+      if(chart.series != null){
+        while(chart.series.length > 0)
+          chart.series[0].remove(true);
+      }
+      chart.redraw();
+    }
+    //Add button events
     $('#bmw_mobil').click(function() {
         var chart = $('#canvas').highcharts();
         chart.addSeries(series_entry);
